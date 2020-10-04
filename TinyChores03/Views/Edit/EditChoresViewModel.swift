@@ -10,7 +10,7 @@ import SwiftUI
 
 final class EditChoresViewModel: ObservableObject {
     private let db: ChoresDatabase
-    private var sort: ChoresDatabase.Sort = .next
+    private(set) var sort: ChoresDatabase.Sort = .next
 
     init(db: ChoresDatabase) {
         self.db = db
@@ -43,7 +43,14 @@ final class EditChoresViewModel: ObservableObject {
 
 
     func sort(by sort: ChoresDatabase.Sort) {
-        self.sort = sort
-        db.sort(by: sort)
+        withAnimation {
+            self.sort = sort
+            db.sort(by: sort)
+        }
+    }
+
+
+    func resetSort() {
+        db.sort(by: .next)
     }
 }
