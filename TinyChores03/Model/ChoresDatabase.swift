@@ -11,14 +11,8 @@ import Combine
 
 private let defaultsKey = "ChoresDatabase.Chores"
 
+
 final class ChoresDatabase: ObservableObject {
-    enum Sort {
-        case name
-        case period
-        case next
-    }
-
-
     private let userDefaults: UserDefaults
 
     @Published var chores: [Chore]
@@ -32,7 +26,6 @@ final class ChoresDatabase: ObservableObject {
 
 
     func finishCurrentChore() {
-        objectWillChange.send()
         chores.first!.finish()
         chores.sort(by: { $0.date < $1.date })
         save()
