@@ -36,12 +36,21 @@ struct EditChoresView: View {
             Menu() {
                 Button(action: sortByName) {
                     Text("Sort by name")
+                    if viewModel.isSortByName {
+                        Image(systemName: "checkmark")
+                    }
                 }
                 Button(action: sortByPeriod) {
                     Text("Sort by period")
+                    if viewModel.isSortByPeriod {
+                        Image(systemName: "checkmark")
+                    }
                 }
                 Button(action: sortByNext) {
                     Text("Sort by next")
+                    if viewModel.isSortByNext {
+                        Image(systemName: "checkmark")
+                    }
                 }
             } label: {
                 Image(systemName: "list.triangle")
@@ -102,7 +111,9 @@ struct EditChoresView_Previews: PreviewProvider {
     static let vm = EditChoresViewModel(db: .init(userDefaults: .standard))
 
     static var previews: some View {
-        EditChoresView(viewModel: vm)
+        NavigationView {
+            EditChoresView(viewModel: vm)
+        }
     }
 }
 #endif
