@@ -22,19 +22,4 @@ final class EditChoresMenuViewModel: ObservableObject {
         self.sorter = sorter
         self.addChore = addChore
     }
-
-
-    var isSortByName: Bool {
-        return sort == .name
-    }
-
-
-    var isSortByPeriod: Bool {
-        sort == .period
-    }
-
-
-    var isSortByNext: Bool {
-        sort == .next
-    }
 }

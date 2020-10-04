@@ -13,12 +13,12 @@ struct EditChoresMenuButtonView: View {
 
     let sort: ChoresDatabase.Sort
     let action: Action
-    let isSelected: Bool
+    let selectedSort: ChoresDatabase.Sort
 
 
-    init(sort: ChoresDatabase.Sort, isSelected: Bool, action: @escaping Action) {
+    init(sort: ChoresDatabase.Sort, selectedSort: ChoresDatabase.Sort, action: @escaping Action) {
         self.sort = sort
-        self.isSelected = isSelected
+        self.selectedSort = selectedSort
         self.action = action
     }
 
@@ -35,6 +35,11 @@ struct EditChoresMenuButtonView: View {
     }
 
 
+    private var isSelected: Bool {
+        sort == selectedSort
+    }
+
+
     private func doSort() {
         action()
     }
@@ -44,7 +49,7 @@ struct EditChoresMenuButtonView: View {
 #if DEBUG
 struct EditChoresMenuButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        EditChoresMenuButtonView(sort: .name, isSelected: true, action: {})
+        EditChoresMenuButtonView(sort: .name, selectedSort: .period, action: {})
     }
 }
 #endif

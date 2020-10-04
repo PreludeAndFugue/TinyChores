@@ -20,13 +20,13 @@ struct EditChoresMenuView: View {
     var body: some View {
         HStack(spacing: 16) {
             Menu() {
-                EditChoresMenuButtonView(sort: .name, isSelected: viewModel.isSortByName) {
+                EditChoresMenuButtonView(sort: .name, selectedSort: viewModel.sort) {
                     viewModel.sorter(.name)
                 }
-                EditChoresMenuButtonView(sort: .period, isSelected: viewModel.isSortByPeriod) {
+                EditChoresMenuButtonView(sort: .period, selectedSort: viewModel.sort) {
                     viewModel.sorter(.period)
                 }
-                EditChoresMenuButtonView(sort: .next, isSelected: viewModel.isSortByNext) {
+                EditChoresMenuButtonView(sort: .next, selectedSort: viewModel.sort) {
                     viewModel.sorter(.next)
                 }
             } label: {
