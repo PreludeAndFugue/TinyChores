@@ -37,7 +37,6 @@ struct MainView: View {
 
 
     func showSettings() {
-        print("show settings")
         showingSettings.toggle()
     }
 
