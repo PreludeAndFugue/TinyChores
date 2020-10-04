@@ -14,6 +14,8 @@ struct MainView: View {
     @StateObject var viewModel: MainViewModel
 
 
+    @State var textViewToggle = false
+
     @State var opacity = 1.0
     @State var scale: CGFloat = 1
     
@@ -23,9 +25,7 @@ struct MainView: View {
             SettingsButtonView(action: showSettings)
 
             ZStack(alignment: .bottomTrailing) {
-                MainTextView(name: viewModel.currentChore.name)
-                    .opacity(opacity)
-                    .scaleEffect(scale)
+                MainTextView(name: viewModel.currentChore.name, toggle: $textViewToggle)
 
                 NextButtonView(action: completeChore)
             }
@@ -43,16 +43,8 @@ struct MainView: View {
 
     func completeChore() {
         withAnimation {
-            opacity = 0
-            scale = 5
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            scale = 0.01
-            withAnimation() {
-                viewModel.finishChore()
-                opacity = 1
-                scale = 1
-            }
+            textViewToggle.toggle()
+            viewModel.finishChore()
         }
     }
 }
