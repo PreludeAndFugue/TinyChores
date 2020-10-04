@@ -9,11 +9,7 @@
 import SwiftUI
 
 struct MainTextView: View {
-    @State var opacity = 1.0
-
-
     let name: String
-
 
     var body: some View {
         VStack {
