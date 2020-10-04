@@ -37,19 +37,4 @@ final class EditChoresMenuViewModel: ObservableObject {
     var isSortByNext: Bool {
         sort == .next
     }
-
-
-    func sortByName() {
-        sorter(.name)
-    }
-
-
-    func sortByPeriod() {
-        sorter(.period)
-    }
-
-
-    func sortByNext() {
-        sorter(.next)
-    }
 }

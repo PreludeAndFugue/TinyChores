@@ -12,6 +12,7 @@
 		4E1FB23F250ABE110028CBA4 /* ChoresDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FB23C250ABE110028CBA4 /* ChoresDatabase.swift */; };
 		4E3CC760252A748E0019900B /* EditChoresMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CC75F252A748E0019900B /* EditChoresMenuView.swift */; };
 		4E3CC764252A79650019900B /* EditChoresMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CC763252A79650019900B /* EditChoresMenuViewModel.swift */; };
+		4E3CC76A252A80A50019900B /* EditChoresMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CC769252A80A50019900B /* EditChoresMenuButtonView.swift */; };
 		4E546BDE250AC3F50021801D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E546BDD250AC3F50021801D /* MainViewModel.swift */; };
 		4E59AC60250AD519007ED1A6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59AC5F250AD519007ED1A6 /* SettingsView.swift */; };
 		4E86DA0C2517A79900A2021E /* EditChoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DA0B2517A79900A2021E /* EditChoresView.swift */; };
@@ -47,6 +48,7 @@
 		4E1FB23C250ABE110028CBA4 /* ChoresDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoresDatabase.swift; sourceTree = "<group>"; };
 		4E3CC75F252A748E0019900B /* EditChoresMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresMenuView.swift; sourceTree = "<group>"; };
 		4E3CC763252A79650019900B /* EditChoresMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresMenuViewModel.swift; sourceTree = "<group>"; };
+		4E3CC769252A80A50019900B /* EditChoresMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresMenuButtonView.swift; sourceTree = "<group>"; };
 		4E546BDD250AC3F50021801D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4E59AC5F250AD519007ED1A6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4E86DA0B2517A79900A2021E /* EditChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresView.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				4EC809EE2517AF2700C409E3 /* ChoreView.swift */,
 				4E3CC75F252A748E0019900B /* EditChoresMenuView.swift */,
 				4E3CC763252A79650019900B /* EditChoresMenuViewModel.swift */,
+				4E3CC769252A80A50019900B /* EditChoresMenuButtonView.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E3CC76A252A80A50019900B /* EditChoresMenuButtonView.swift in Sources */,
 				4E546BDE250AC3F50021801D /* MainViewModel.swift in Sources */,
 				4E59AC60250AD519007ED1A6 /* SettingsView.swift in Sources */,
 				4EC908B725255A1A006C3BCF /* MainTextView.swift in Sources */,
