@@ -10,40 +10,31 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var db: ChoresDatabase
-    @State var showingSettings = false
     @StateObject var viewModel: MainViewModel
-
-
-    @State var textViewToggle = false
-
-    @State var opacity = 1.0
-    @State var scale: CGFloat = 1
     
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            SettingsButtonView(action: showSettings)
+//            SettingsButtonView(action: viewModel.toggleShowingSettings)
 
             ZStack(alignment: .bottomTrailing) {
-                MainTextView(name: viewModel.currentChore.name, toggle: $textViewToggle)
+                MainTextView(name: viewModel.currentChore.name, toggle: $viewModel.textViewToggle)
 
                 NextButtonView(action: completeChore)
             }
         }
-        .sheet(isPresented: $showingSettings) {
+        .sheet(isPresented: $viewModel.showingSettings) {
             SettingsView()
         }
     }
+}
 
 
-    func showSettings() {
-        showingSettings.toggle()
-    }
+// MARK: - Private
 
-
+private extension MainView {
     func completeChore() {
         withAnimation {
-            textViewToggle.toggle()
             viewModel.finishChore()
         }
     }

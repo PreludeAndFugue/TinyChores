@@ -53,6 +53,7 @@
 		4E3CC76D252A83470019900B /* ChoresDatabase+Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChoresDatabase+Sort.swift"; sourceTree = "<group>"; };
 		4E546BDD250AC3F50021801D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4E59AC5F250AD519007ED1A6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		4E774E2C264834BD0065426E /* TinyChores03.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyChores03.entitlements; sourceTree = "<group>"; };
 		4E86DA0B2517A79900A2021E /* EditChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresView.swift; sourceTree = "<group>"; };
 		4E86DA132517A97100A2021E /* EditChoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresViewModel.swift; sourceTree = "<group>"; };
 		4EC809EE2517AF2700C409E3 /* ChoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreView.swift; sourceTree = "<group>"; };
@@ -160,6 +161,7 @@
 		4ECDBB99250ABDA9002F5BC5 /* TinyChores03 */ = {
 			isa = PBXGroup;
 			children = (
+				4E774E2C264834BD0065426E /* TinyChores03.entitlements */,
 				4E1FB240250ABE180028CBA4 /* Model */,
 				4E1FB241250ABE220028CBA4 /* Views */,
 				4ECDBB9A250ABDA9002F5BC5 /* AppDelegate.swift */,
@@ -480,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TinyChores03/TinyChores03.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TinyChores03/Preview Content\"";
 				DEVELOPMENT_TEAM = T59AZ797LW;
@@ -491,6 +494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -500,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TinyChores03/TinyChores03.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TinyChores03/Preview Content\"";
 				DEVELOPMENT_TEAM = T59AZ797LW;
@@ -511,6 +516,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
