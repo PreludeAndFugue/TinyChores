@@ -77,18 +77,21 @@ private extension ChoresDatabase {
 private extension ChoresDatabase {
     static let initialChores: [Chore] = [
         Chore(id: UUID(), name: "Clean dishes", period: .halfDay, date: Date()),
-        Chore(id: UUID(), name: "Clean bathroom sink", period: .day, date: Date()),
-        Chore(id: UUID(), name: "Clean toilet", period: .day, date: Date()),
-        Chore(id: UUID(), name: "Clean bath", period: .day, date: Date()),
-        Chore(id: UUID(), name: "Dust upstairs", period: .day, date: Date()),
-        Chore(id: UUID(), name: "Dust downstairs", period: .day, date: Date()),
-        Chore(id: UUID(), name: "Hoover upstairs", period: .day, date: Date()),
-        Chore(id: UUID(), name: "Hoover downstairs", period: .day, date: Date()),
+
+        Chore(id: UUID(), name: "Clean toilet", period: .twoDays, date: Date()),
+
+        Chore(id: UUID(), name: "Clean bathroom sink", period: .threeDays, date: Date()),
+        Chore(id: UUID(), name: "Clean bath", period: .threeDays, date: Date()),
+        Chore(id: UUID(), name: "Hoover upstairs", period: .threeDays, date: Date()),
+        Chore(id: UUID(), name: "Hoover downstairs", period: .threeDays, date: Date()),
         Chore(id: UUID(), name: "Empty recycling", period: .threeDays, date: Date()),
-        Chore(id: UUID(), name: "Clean desk", period: .oneWeek, date: Date()),
         Chore(id: UUID(), name: "Change pillow covers", period: .threeDays, date: Date()),
-        Chore(id: UUID(), name: "Change sheets", period: .oneWeek, date: Date()),
         Chore(id: UUID(), name: "Weed garden", period: .threeDays, date: Date()),
+
+        Chore(id: UUID(), name: "Dust upstairs", period: .oneWeek, date: Date()),
+        Chore(id: UUID(), name: "Dust downstairs", period: .oneWeek, date: Date()),
+        Chore(id: UUID(), name: "Clean desk", period: .oneWeek, date: Date()),
+        Chore(id: UUID(), name: "Change sheets", period: .oneWeek, date: Date()),
         Chore(id: UUID(), name: "Weed front door", period: .oneWeek, date: Date())
     ]
 }
