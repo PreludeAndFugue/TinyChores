@@ -60,7 +60,7 @@
 		4EC908AA25255601006C3BCF /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		4EC908B025255860006C3BCF /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
 		4EC908B625255A1A006C3BCF /* MainTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextView.swift; sourceTree = "<group>"; };
-		4ECDBB97250ABDA9002F5BC5 /* TinyChores03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TinyChores03.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ECDBB97250ABDA9002F5BC5 /* Tiny Chores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tiny Chores.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECDBB9A250ABDA9002F5BC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ECDBB9C250ABDA9002F5BC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4ECDBB9E250ABDA9002F5BC5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		4ECDBB98250ABDA9002F5BC5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4ECDBB97250ABDA9002F5BC5 /* TinyChores03.app */,
+				4ECDBB97250ABDA9002F5BC5 /* Tiny Chores.app */,
 				4ECDBBAD250ABDAA002F5BC5 /* TinyChores03Tests.xctest */,
 			);
 			name = Products;
@@ -225,7 +225,7 @@
 			);
 			name = TinyChores03;
 			productName = TinyChores03;
-			productReference = 4ECDBB97250ABDA9002F5BC5 /* TinyChores03.app */;
+			productReference = 4ECDBB97250ABDA9002F5BC5 /* Tiny Chores.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4ECDBBAC250ABDAA002F5BC5 /* TinyChores03Tests */ = {
@@ -493,7 +493,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tiny Chores";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,7 +516,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Tiny Chores";
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
