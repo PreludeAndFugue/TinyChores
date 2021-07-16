@@ -15,7 +15,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-//            SettingsButtonView(action: viewModel.toggleShowingSettings)
+            SettingsButtonView(action: viewModel.toggleShowingSettings)
 
             ZStack(alignment: .bottomTrailing) {
                 MainTextView(name: viewModel.currentChore.name, toggle: $viewModel.textViewToggle)

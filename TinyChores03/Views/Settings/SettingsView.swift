@@ -16,11 +16,11 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(
-                    destination: EditChoresView(viewModel: .init(db: self.db)),
-                    label: {
-                        Text("Edit chores")
-                })
+//                NavigationLink(
+//                    destination: EditChoresView(viewModel: .init(db: self.db)),
+//                    label: {
+//                        Text("Edit chores")
+//                })
 
                 Button(action: canResetChores, label: {
                     Text("Reset chores")
