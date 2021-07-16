@@ -76,6 +76,8 @@ private extension ChoresDatabase {
 
 private extension ChoresDatabase {
     static let initialChores: [Chore] = [
+        Chore(id: UUID(), name: "Stretch", period: .thirdDay, date: Date()),
+        
         Chore(id: UUID(), name: "Clean dishes", period: .halfDay, date: Date()),
 
         Chore(id: UUID(), name: "Clean toilet", period: .twoDays, date: Date()),

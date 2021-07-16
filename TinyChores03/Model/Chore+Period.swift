@@ -10,6 +10,7 @@ import Foundation
 
 extension Chore {
     enum Period: Int, CaseIterable, Codable {
+        case thirdDay = 28_800
         case halfDay = 43_200
         case day = 86_400
         case twoDays = 172_800
@@ -27,6 +28,8 @@ extension Chore.Period {
 
     var name: String {
         switch self {
+        case .thirdDay:
+            return "Third of a day"
         case .halfDay:
             return "Half day"
         case .day:
