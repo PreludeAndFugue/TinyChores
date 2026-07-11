@@ -15,15 +15,44 @@ struct EditChoresView: View {
 
     
     var body: some View {
+        #if os(macOS)
+        macOSContent
+        #else
+        iOSContent
+        #endif
+    }
+
+
+    #if os(macOS)
+    private var macOSContent: some View {
+        choreList
+            .listStyle(.inset)
+            .toolbar {
+                ToolbarItem {
+                    trailingButtons
+                }
+            }
+    }
+    #endif
+
+
+    #if os(iOS)
+    private var iOSContent: some View {
+        choreList
+            .listStyle(InsetGroupedListStyle())
+            .navigationTitle("Edit")
+            .navigationBarItems(trailing: trailingButtons)
+    }
+    #endif
+
+
+    private var choreList: some View {
         List {
             ForEach(viewModel.chores) { chore in
                 ChoreView(chore: chore)
             }
             .onDelete(perform: deleteChore)
         }
-        .listStyle(InsetGroupedListStyle())
-        .navigationTitle("Edit")
-        .navigationBarItems(trailing: trailingButtons)
         .sheet(isPresented: $isCreatingChore) {
             AddChoreView(viewModel: AddChoreViewModel(db: db))
         }

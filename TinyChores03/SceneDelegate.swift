@@ -6,6 +6,7 @@
 //  Copyright © 2020 Gary Kerr. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
 import SwiftUI
 
@@ -63,3 +64,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 }
+#endif

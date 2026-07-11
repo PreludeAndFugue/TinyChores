@@ -14,6 +14,41 @@ struct SettingsView: View {
     @State var shouldReset = false
 
     var body: some View {
+        #if os(macOS)
+        macOSContent
+        #else
+        iOSContent
+        #endif
+    }
+
+
+    #if os(macOS)
+    private var macOSContent: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Settings")
+                .font(.headline)
+
+            Button(action: canResetChores) {
+                Text("Reset chores")
+                    .foregroundColor(.purple)
+            }
+
+            HStack {
+                Spacer()
+                doneButton
+            }
+        }
+        .padding()
+        .frame(width: 320)
+        .alert(isPresented: $shouldReset, content: {
+            shouldResetAlert
+        })
+    }
+    #endif
+
+
+    #if os(iOS)
+    private var iOSContent: some View {
         NavigationView {
             List {
 //                NavigationLink(
@@ -35,6 +70,7 @@ struct SettingsView: View {
             })
         }
     }
+    #endif
 
 
     var doneButton: some View {

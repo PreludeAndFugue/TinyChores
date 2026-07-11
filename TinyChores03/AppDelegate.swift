@@ -6,6 +6,9 @@
 //  Copyright © 2020 Gary Kerr. All rights reserved.
 //
 
+import SwiftUI
+
+#if os(iOS)
 import UIKit
 
 @UIApplicationMain
@@ -34,4 +37,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+#endif
 
+#if os(macOS)
+@main
+struct TinyChores03App: App {
+    @StateObject private var database: ChoresDatabase
+    @StateObject private var mainViewModel: MainViewModel
+
+    init() {
+        let database = ChoresDatabase(userDefaults: .standard)
+        _database = StateObject(wrappedValue: database)
+        _mainViewModel = StateObject(wrappedValue: MainViewModel(db: database))
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            MainView(viewModel: mainViewModel)
+                .environmentObject(database)
+                .frame(minWidth: 480, minHeight: 360)
+        }
+    }
+}
+#endif

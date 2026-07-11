@@ -27,7 +27,6 @@
 		4ECDBB9F250ABDA9002F5BC5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBB9E250ABDA9002F5BC5 /* MainView.swift */; };
 		4ECDBBA1250ABDAA002F5BC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECDBBA0250ABDAA002F5BC5 /* Assets.xcassets */; };
 		4ECDBBA4250ABDAA002F5BC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECDBBA3250ABDAA002F5BC5 /* Preview Assets.xcassets */; };
-		4ECDBBA7250ABDAA002F5BC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECDBBA5250ABDAA002F5BC5 /* LaunchScreen.storyboard */; };
 		4ECDBBB2250ABDAA002F5BC5 /* TinyChores03Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBBB1250ABDAA002F5BC5 /* TinyChores03Tests.swift */; };
 		4EE2DE94251A8C3700675C8D /* AddChoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2DE93251A8C3700675C8D /* AddChoreView.swift */; };
 		4EE2DE9A251A922B00675C8D /* AddChoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2DE99251A922B00675C8D /* AddChoreViewModel.swift */; };
@@ -66,7 +65,6 @@
 		4ECDBB9E250ABDA9002F5BC5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4ECDBBA0250ABDAA002F5BC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ECDBBA3250ABDAA002F5BC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4ECDBBA6250ABDAA002F5BC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ECDBBA8250ABDAA002F5BC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECDBBAD250ABDAA002F5BC5 /* TinyChores03Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyChores03Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECDBBB1250ABDAA002F5BC5 /* TinyChores03Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyChores03Tests.swift; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				4ECDBB9A250ABDA9002F5BC5 /* AppDelegate.swift */,
 				4ECDBB9C250ABDA9002F5BC5 /* SceneDelegate.swift */,
 				4ECDBBA0250ABDAA002F5BC5 /* Assets.xcassets */,
-				4ECDBBA5250ABDAA002F5BC5 /* LaunchScreen.storyboard */,
 				4ECDBBA8250ABDAA002F5BC5 /* Info.plist */,
 				4ECDBBA2250ABDAA002F5BC5 /* Preview Content */,
 			);
@@ -271,7 +268,6 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 4ECDBB8E250ABDA9002F5BC5;
 			productRefGroup = 4ECDBB98250ABDA9002F5BC5 /* Products */;
@@ -289,7 +285,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4ECDBBA7250ABDAA002F5BC5 /* LaunchScreen.storyboard in Resources */,
 				4ECDBBA4250ABDAA002F5BC5 /* Preview Assets.xcassets in Resources */,
 				4ECDBBA1250ABDAA002F5BC5 /* Assets.xcassets in Resources */,
 			);
@@ -350,17 +345,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		4ECDBBA5250ABDAA002F5BC5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4ECDBBA6250ABDAA002F5BC5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		4ECDBBB4250ABDAA002F5BC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -417,7 +401,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				SDKROOT = auto;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -471,7 +456,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				SDKROOT = auto;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -484,20 +470,29 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TinyChores03/TinyChores03.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TinyChores03/Preview Content\"";
 				DEVELOPMENT_TEAM = T59AZ797LW;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = TinyChores03/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "Tiny Chores";
-				SUPPORTS_MACCATALYST = YES;
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -507,6 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TinyChores03/TinyChores03.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"TinyChores03/Preview Content\"";
 				DEVELOPMENT_TEAM = T59AZ797LW;
 				ENABLE_PREVIEWS = YES;
@@ -515,12 +511,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "Tiny Chores";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

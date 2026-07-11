@@ -80,6 +80,8 @@ private extension ChoresDatabase {
         
         Chore(id: UUID(), name: "Clean dishes", period: .halfDay, date: Date()),
 
+        Chore(id: UUID(), name: "Check bike", period: .day, date: Date()),
+
         Chore(id: UUID(), name: "Clean toilet", period: .twoDays, date: Date()),
 
         Chore(id: UUID(), name: "Clean bathroom sink", period: .threeDays, date: Date()),

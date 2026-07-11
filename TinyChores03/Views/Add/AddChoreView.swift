@@ -14,6 +14,42 @@ struct AddChoreView: View {
 
 
     var body: some View {
+        #if os(macOS)
+        macOSContent
+        #else
+        iOSContent
+        #endif
+    }
+
+
+    #if os(macOS)
+    private var macOSContent: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Add Chore")
+                .font(.headline)
+
+            Form {
+                TextField("Title", text: $viewModel.name)
+                Picker("Period", selection: $viewModel.selectedPeriod) {
+                    ForEach(0..<viewModel.periodNames.count) { index in
+                        Text(viewModel.periodNames[index])
+                    }
+                }
+            }
+
+            HStack {
+                Spacer()
+                saveButton
+            }
+        }
+        .padding()
+        .frame(width: 360)
+    }
+    #endif
+
+
+    #if os(iOS)
+    private var iOSContent: some View {
         NavigationView {
             Form {
                 TextField("Title", text: $viewModel.name)
@@ -28,6 +64,7 @@ struct AddChoreView: View {
             .navigationBarItems(trailing: saveButton)
         }
     }
+    #endif
 
 
     private var saveButton: some View {
