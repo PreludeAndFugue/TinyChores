@@ -18,12 +18,11 @@ struct NextButtonView: View {
                 .font(.system(.title3, design: .rounded))
                 .fontWeight(.bold)
         }
-        .padding()
         .foregroundColor(.white)
-        .background(Color.purple)
-        .clipShape(Capsule())
-        .accentColor(.blue)
-        .offset(x: -8, y: -8)
+        .padding(.horizontal, 24)
+        .padding(.vertical, 14)
+        .background(Capsule().fill(Color.purple))
+        .accessibilityLabel("Next chore")
     }
 }
 

@@ -31,7 +31,7 @@ struct AddChoreView: View {
             Form {
                 TextField("Title", text: $viewModel.name)
                 Picker("Period", selection: $viewModel.selectedPeriod) {
-                    ForEach(0..<viewModel.periodNames.count) { index in
+                    ForEach(viewModel.periodNames.indices, id: \.self) { index in
                         Text(viewModel.periodNames[index])
                     }
                 }
@@ -54,7 +54,7 @@ struct AddChoreView: View {
             Form {
                 TextField("Title", text: $viewModel.name)
                 Picker(selection: $viewModel.selectedPeriod, label: Text("Period")) {
-                    ForEach(0..<viewModel.periodNames.count) { i in
+                    ForEach(viewModel.periodNames.indices, id: \.self) { i in
                         Text(viewModel.periodNames[i])
                     }
                     .navigationBarTitle("Period", displayMode: .inline)

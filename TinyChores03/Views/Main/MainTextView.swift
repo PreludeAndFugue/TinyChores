@@ -38,12 +38,13 @@ struct MainTextView: View {
 
     private var text: some View {
         Text(name)
-            .font(.system(size: 65, design: .rounded))
-            .fontWeight(.bold)
+            .font(.system(size: 52, weight: .bold, design: .rounded))
             .multilineTextAlignment(.center)
             .foregroundColor(.purple)
-            .padding()
-            .frame(maxWidth: .infinity)
+            .lineLimit(2)
+            .minimumScaleFactor(0.55)
+            .padding(.horizontal, 24)
+            .frame(maxWidth: .infinity, alignment: .center)
             .animation(nil)
             .transition(transition)
             .animation(.easeIn)

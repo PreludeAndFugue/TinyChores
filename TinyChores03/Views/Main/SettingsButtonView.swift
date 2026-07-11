@@ -14,11 +14,11 @@ struct SettingsButtonView: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: "gearshape.fill")
-                .font(.largeTitle)
+                .font(.title2)
+                .frame(width: 44, height: 44)
         }
-        .padding()
         .foregroundColor(.purple)
-        .offset(x: 8, y: 8)
+        .accessibilityLabel("Settings")
     }
 }
 

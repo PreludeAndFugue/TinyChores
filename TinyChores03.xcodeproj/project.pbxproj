@@ -22,8 +22,7 @@
 		4EC908AB25255601006C3BCF /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908AA25255601006C3BCF /* SettingsButtonView.swift */; };
 		4EC908B125255860006C3BCF /* NextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908B025255860006C3BCF /* NextButtonView.swift */; };
 		4EC908B725255A1A006C3BCF /* MainTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908B625255A1A006C3BCF /* MainTextView.swift */; };
-		4ECDBB9B250ABDA9002F5BC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBB9A250ABDA9002F5BC5 /* AppDelegate.swift */; };
-		4ECDBB9D250ABDA9002F5BC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBB9C250ABDA9002F5BC5 /* SceneDelegate.swift */; };
+		4ECDBB9B250ABDA9002F5BC5 /* TinyChores03App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBB9A250ABDA9002F5BC5 /* TinyChores03App.swift */; };
 		4ECDBB9F250ABDA9002F5BC5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBB9E250ABDA9002F5BC5 /* MainView.swift */; };
 		4ECDBBA1250ABDAA002F5BC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECDBBA0250ABDAA002F5BC5 /* Assets.xcassets */; };
 		4ECDBBA4250ABDAA002F5BC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECDBBA3250ABDAA002F5BC5 /* Preview Assets.xcassets */; };
@@ -60,8 +59,7 @@
 		4EC908B025255860006C3BCF /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
 		4EC908B625255A1A006C3BCF /* MainTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextView.swift; sourceTree = "<group>"; };
 		4ECDBB97250ABDA9002F5BC5 /* Tiny Chores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tiny Chores.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4ECDBB9A250ABDA9002F5BC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4ECDBB9C250ABDA9002F5BC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4ECDBB9A250ABDA9002F5BC5 /* TinyChores03App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyChores03App.swift; sourceTree = "<group>"; };
 		4ECDBB9E250ABDA9002F5BC5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4ECDBBA0250ABDAA002F5BC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ECDBBA3250ABDAA002F5BC5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -162,8 +160,7 @@
 				4E774E2C264834BD0065426E /* TinyChores03.entitlements */,
 				4E1FB240250ABE180028CBA4 /* Model */,
 				4E1FB241250ABE220028CBA4 /* Views */,
-				4ECDBB9A250ABDA9002F5BC5 /* AppDelegate.swift */,
-				4ECDBB9C250ABDA9002F5BC5 /* SceneDelegate.swift */,
+				4ECDBB9A250ABDA9002F5BC5 /* TinyChores03App.swift */,
 				4ECDBBA0250ABDAA002F5BC5 /* Assets.xcassets */,
 				4ECDBBA8250ABDAA002F5BC5 /* Info.plist */,
 				4ECDBBA2250ABDAA002F5BC5 /* Preview Content */,
@@ -314,8 +311,7 @@
 				4E3CC764252A79650019900B /* EditChoresMenuViewModel.swift in Sources */,
 				4EE2DE9A251A922B00675C8D /* AddChoreViewModel.swift in Sources */,
 				4EC908AB25255601006C3BCF /* SettingsButtonView.swift in Sources */,
-				4ECDBB9B250ABDA9002F5BC5 /* AppDelegate.swift in Sources */,
-				4ECDBB9D250ABDA9002F5BC5 /* SceneDelegate.swift in Sources */,
+				4ECDBB9B250ABDA9002F5BC5 /* TinyChores03App.swift in Sources */,
 				4E3CC760252A748E0019900B /* EditChoresMenuView.swift in Sources */,
 				4EE2DE94251A8C3700675C8D /* AddChoreView.swift in Sources */,
 				4EC908B125255860006C3BCF /* NextButtonView.swift in Sources */,
