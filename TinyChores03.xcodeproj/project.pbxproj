@@ -10,17 +10,11 @@
 		4E1FB23D250ABE110028CBA4 /* Chore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FB23A250ABE110028CBA4 /* Chore.swift */; };
 		4E1FB23E250ABE110028CBA4 /* Chore+Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FB23B250ABE110028CBA4 /* Chore+Period.swift */; };
 		4E1FB23F250ABE110028CBA4 /* ChoresDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FB23C250ABE110028CBA4 /* ChoresDatabase.swift */; };
-		4E3CC760252A748E0019900B /* EditChoresMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CC75F252A748E0019900B /* EditChoresMenuView.swift */; };
-		4E3CC764252A79650019900B /* EditChoresMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CC763252A79650019900B /* EditChoresMenuViewModel.swift */; };
-		4E3CC76A252A80A50019900B /* EditChoresMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CC769252A80A50019900B /* EditChoresMenuButtonView.swift */; };
 		4E3CC76E252A83470019900B /* ChoresDatabase+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3CC76D252A83470019900B /* ChoresDatabase+Sort.swift */; };
 		4E546BDE250AC3F50021801D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E546BDD250AC3F50021801D /* MainViewModel.swift */; };
 		4E59AC60250AD519007ED1A6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59AC5F250AD519007ED1A6 /* SettingsView.swift */; };
-		4E86DA0C2517A79900A2021E /* EditChoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DA0B2517A79900A2021E /* EditChoresView.swift */; };
-		4E86DA142517A97100A2021E /* EditChoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DA132517A97100A2021E /* EditChoresViewModel.swift */; };
+		4E86DA0C2517A79900A2021E /* TaskManagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DA0B2517A79900A2021E /* TaskManagerView.swift */; };
 		A7A10002290711AA00000001 /* TaskEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A10001290711AA00000001 /* TaskEditorView.swift */; };
-		4EC809EF2517AF2700C409E3 /* ChoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC809EE2517AF2700C409E3 /* ChoreView.swift */; };
-		4EC908AB25255601006C3BCF /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908AA25255601006C3BCF /* SettingsButtonView.swift */; };
 		4EC908B125255860006C3BCF /* NextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908B025255860006C3BCF /* NextButtonView.swift */; };
 		4EC908B725255A1A006C3BCF /* MainTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908B625255A1A006C3BCF /* MainTextView.swift */; };
 		4ECDBB9B250ABDA9002F5BC5 /* TinyChores03App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBB9A250ABDA9002F5BC5 /* TinyChores03App.swift */; };
@@ -44,18 +38,12 @@
 		4E1FB23A250ABE110028CBA4 /* Chore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chore.swift; sourceTree = "<group>"; };
 		4E1FB23B250ABE110028CBA4 /* Chore+Period.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Chore+Period.swift"; sourceTree = "<group>"; };
 		4E1FB23C250ABE110028CBA4 /* ChoresDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoresDatabase.swift; sourceTree = "<group>"; };
-		4E3CC75F252A748E0019900B /* EditChoresMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresMenuView.swift; sourceTree = "<group>"; };
-		4E3CC763252A79650019900B /* EditChoresMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresMenuViewModel.swift; sourceTree = "<group>"; };
-		4E3CC769252A80A50019900B /* EditChoresMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresMenuButtonView.swift; sourceTree = "<group>"; };
 		4E3CC76D252A83470019900B /* ChoresDatabase+Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChoresDatabase+Sort.swift"; sourceTree = "<group>"; };
 		4E546BDD250AC3F50021801D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		4E59AC5F250AD519007ED1A6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		4E774E2C264834BD0065426E /* TinyChores03.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyChores03.entitlements; sourceTree = "<group>"; };
-		4E86DA0B2517A79900A2021E /* EditChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresView.swift; sourceTree = "<group>"; };
-		4E86DA132517A97100A2021E /* EditChoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresViewModel.swift; sourceTree = "<group>"; };
+		4E86DA0B2517A79900A2021E /* TaskManagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskManagerView.swift; sourceTree = "<group>"; };
 		A7A10001290711AA00000001 /* TaskEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorView.swift; sourceTree = "<group>"; };
-		4EC809EE2517AF2700C409E3 /* ChoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreView.swift; sourceTree = "<group>"; };
-		4EC908AA25255601006C3BCF /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		4EC908B025255860006C3BCF /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
 		4EC908B625255A1A006C3BCF /* MainTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextView.swift; sourceTree = "<group>"; };
 		4ECDBB97250ABDA9002F5BC5 /* Tiny Chores.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tiny Chores.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +89,7 @@
 		4E1FB241250ABE220028CBA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4E86DA122517A96300A2021E /* Edit */,
+				4E86DA122517A96300A2021E /* Tasks */,
 				4E86DA112517A95400A2021E /* Main */,
 				4EE2DE9D251A9F2E00675C8D /* Settings */,
 			);
@@ -115,22 +103,17 @@
 				4E546BDD250AC3F50021801D /* MainViewModel.swift */,
 				4EC908B625255A1A006C3BCF /* MainTextView.swift */,
 				4EC908B025255860006C3BCF /* NextButtonView.swift */,
-				4EC908AA25255601006C3BCF /* SettingsButtonView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		4E86DA122517A96300A2021E /* Edit */ = {
+		4E86DA122517A96300A2021E /* Tasks */ = {
 			isa = PBXGroup;
 			children = (
-				4E86DA0B2517A79900A2021E /* EditChoresView.swift */,
-				4E86DA132517A97100A2021E /* EditChoresViewModel.swift */,
-				4EC809EE2517AF2700C409E3 /* ChoreView.swift */,
-				4E3CC75F252A748E0019900B /* EditChoresMenuView.swift */,
-				4E3CC763252A79650019900B /* EditChoresMenuViewModel.swift */,
-				4E3CC769252A80A50019900B /* EditChoresMenuButtonView.swift */,
+				4E86DA0B2517A79900A2021E /* TaskManagerView.swift */,
 				A7A10001290711AA00000001 /* TaskEditorView.swift */,
 			);
+			name = Tasks;
 			path = Edit;
 			sourceTree = "<group>";
 		};
@@ -290,22 +273,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E3CC76A252A80A50019900B /* EditChoresMenuButtonView.swift in Sources */,
 				4E546BDE250AC3F50021801D /* MainViewModel.swift in Sources */,
 				4E59AC60250AD519007ED1A6 /* SettingsView.swift in Sources */,
 				4EC908B725255A1A006C3BCF /* MainTextView.swift in Sources */,
 				4E3CC76E252A83470019900B /* ChoresDatabase+Sort.swift in Sources */,
-				4E86DA142517A97100A2021E /* EditChoresViewModel.swift in Sources */,
 				A7A10002290711AA00000001 /* TaskEditorView.swift in Sources */,
 				4E1FB23E250ABE110028CBA4 /* Chore+Period.swift in Sources */,
-				4E3CC764252A79650019900B /* EditChoresMenuViewModel.swift in Sources */,
-				4EC908AB25255601006C3BCF /* SettingsButtonView.swift in Sources */,
 				4ECDBB9B250ABDA9002F5BC5 /* TinyChores03App.swift in Sources */,
-				4E3CC760252A748E0019900B /* EditChoresMenuView.swift in Sources */,
 				4EC908B125255860006C3BCF /* NextButtonView.swift in Sources */,
-				4E86DA0C2517A79900A2021E /* EditChoresView.swift in Sources */,
+				4E86DA0C2517A79900A2021E /* TaskManagerView.swift in Sources */,
 				4ECDBB9F250ABDA9002F5BC5 /* MainView.swift in Sources */,
-				4EC809EF2517AF2700C409E3 /* ChoreView.swift in Sources */,
 				4E1FB23F250ABE110028CBA4 /* ChoresDatabase.swift in Sources */,
 				4E1FB23D250ABE110028CBA4 /* Chore.swift in Sources */,
 			);
@@ -384,7 +361,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -438,7 +415,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -506,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T59AZ797LW;
 				INFOPLIST_FILE = TinyChores03Tests/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,7 +505,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T59AZ797LW;
 				INFOPLIST_FILE = TinyChores03Tests/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -23,6 +23,7 @@ struct MainTextView: View {
                     text
                 }
             }
+            .animation(.easeIn, value: toggle)
 
             Spacer()
         }
@@ -45,9 +46,7 @@ struct MainTextView: View {
             .minimumScaleFactor(0.55)
             .padding(.horizontal, 24)
             .frame(maxWidth: .infinity, alignment: .center)
-            .animation(nil)
             .transition(transition)
-            .animation(.easeIn)
     }
 }
 

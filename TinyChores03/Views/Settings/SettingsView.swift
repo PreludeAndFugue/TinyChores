@@ -9,78 +9,32 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject var db: ChoresDatabase
-    @State var shouldReset = false
-    @State private var isManagingTasks = false
+    @EnvironmentObject private var db: ChoresDatabase
+    @State private var showingResetConfirmation = false
 
     var body: some View {
-        macOSContent
-    }
+        Form {
+            Section("Data") {
+                Text("Restore the original task list and remove any changes you have made.")
+                    .foregroundStyle(.secondary)
 
-
-    private var macOSContent: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Settings")
-                .font(.headline)
-
-            Button(action: { isManagingTasks = true }) {
-                Text("Manage tasks")
-            }
-
-            Button(action: canResetChores) {
-                Text("Reset chores")
-                    .foregroundColor(.purple)
-            }
-
-            HStack {
-                Spacer()
-                doneButton
+                Button("Reset All Tasks…", role: .destructive) {
+                    showingResetConfirmation = true
+                }
             }
         }
-        .padding()
-        .frame(width: 320)
-        .sheet(isPresented: $isManagingTasks) {
-            EditChoresView(viewModel: .init(db: db))
-                .environmentObject(db)
-                .frame(minWidth: 480, minHeight: 420)
+        .formStyle(.grouped)
+        .frame(width: 460, height: 180)
+        .scenePadding()
+        .tint(.purple)
+        .alert("Reset all tasks?", isPresented: $showingResetConfirmation) {
+            Button("Cancel", role: .cancel) { }
+            Button("Reset", role: .destructive) {
+                db.resetChores()
+            }
+        } message: {
+            Text("This restores the original task list and cannot be undone.")
         }
-        .alert(isPresented: $shouldReset, content: {
-            shouldResetAlert
-        })
-    }
-
-
-    var doneButton: some View {
-        Button(action: doneEditing) {
-            Text("Done")
-                .foregroundColor(.purple)
-        }
-    }
-
-
-    var shouldResetAlert: Alert {
-        Alert(
-            title: Text("Reset Chores"),
-            message: Text("Do you want to reset chores to initial state"),
-            primaryButton: .cancel(Text("No")),
-            secondaryButton: .destructive(Text("Yes"), action: resetChores)
-        )
-    }
-
-
-    func doneEditing() {
-        presentationMode.wrappedValue.dismiss()
-    }
-
-
-    func canResetChores() {
-        shouldReset = true
-    }
-
-
-    func resetChores() {
-        db.resetChores()
     }
 }
 

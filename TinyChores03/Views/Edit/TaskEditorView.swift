@@ -8,10 +8,15 @@ import SwiftUI
 struct TaskEditorView: View {
     @EnvironmentObject private var database: ChoresDatabase
 
+    private enum Field {
+        case name
+    }
+
     private let chore: Chore?
     private let onDismiss: () -> Void
     @State private var name: String
     @State private var period: Chore.Period
+    @FocusState private var focusedField: Field?
 
     init(chore: Chore? = nil, onDismiss: @escaping () -> Void) {
         self.chore = chore
@@ -26,26 +31,34 @@ struct TaskEditorView: View {
 
 
     private var macOSContent: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 20) {
             Text(title)
-                .font(.headline)
+                .font(.title2.weight(.semibold))
 
-            TextField("Task name", text: $name)
+            Form {
+                TextField("Task name", text: $name)
+                    .focused($focusedField, equals: .name)
+                    .onSubmit(saveIfPossible)
 
-            Picker("Repeat", selection: $period) {
-                ForEach(Chore.Period.allCases) { period in
-                    Text(period.name).tag(period)
+                Picker("Repeats every", selection: $period) {
+                    ForEach(Chore.Period.allCases) { period in
+                        Text(period.name).tag(period)
+                    }
                 }
             }
+            .formStyle(.grouped)
 
             HStack {
-                Spacer()
                 cancelButton
+                Spacer()
                 saveButton
             }
         }
-        .padding()
-        .frame(width: 360)
+        .padding(20)
+        .frame(width: 420)
+        .onAppear {
+            focusedField = .name
+        }
     }
 
 
@@ -56,7 +69,8 @@ struct TaskEditorView: View {
 
 
     private var saveButton: some View {
-        Button("Save", action: save)
+        Button(saveButtonTitle, action: save)
+            .keyboardShortcut(.defaultAction)
             .disabled(!canSave)
     }
 
@@ -66,12 +80,19 @@ struct TaskEditorView: View {
     }
 
 
+    private var saveButtonTitle: String {
+        chore == nil ? "Add Task" : "Save Changes"
+    }
+
+
     private var canSave: Bool {
         !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
 
 
     private func save() {
+        guard canSave else { return }
+
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
 
         if let chore = chore {
@@ -81,6 +102,12 @@ struct TaskEditorView: View {
         }
 
         dismiss()
+    }
+
+
+    private func saveIfPossible() {
+        guard canSave else { return }
+        save()
     }
 
 

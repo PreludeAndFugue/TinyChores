@@ -9,15 +9,26 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var db: ChoresDatabase
     @StateObject var viewModel: MainViewModel
+    @Environment(\.openWindow) private var openWindow
     
     
     var body: some View {
         screenContent
-        .sheet(isPresented: $viewModel.showingSettings) {
-            SettingsView()
-        }
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Button(action: showTasks) {
+                        Label("Tasks", systemImage: "checklist")
+                    }
+                    .help("Manage Tasks")
+
+                    SettingsLink {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+                    .help("Open Settings")
+                }
+            }
+            .tint(.purple)
     }
 
 
@@ -31,16 +42,8 @@ struct MainView: View {
         ZStack {
             MainTextView(name: viewModel.currentChore.name, toggle: $viewModel.textViewToggle)
         }
-        .overlay(settingsButton, alignment: .topLeading)
         .overlay(nextButton, alignment: .bottomTrailing)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-
-
-    private var settingsButton: some View {
-        SettingsButtonView(action: viewModel.toggleShowingSettings)
-            .padding(.top, 12)
-            .padding(.leading, 16)
     }
 
 
@@ -60,6 +63,11 @@ struct MainView: View {
 // MARK: - Private
 
 private extension MainView {
+    func showTasks() {
+        openWindow(id: TinyChoresSceneID.tasks)
+    }
+
+
     func completeChore() {
         withAnimation {
             viewModel.finishChore()

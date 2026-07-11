@@ -9,7 +9,7 @@
 import Foundation
 
 extension ChoresDatabase {
-    enum Sort {
+    enum Sort: String, CaseIterable {
         case name
         case period
         case next
@@ -18,14 +18,14 @@ extension ChoresDatabase {
 
 
 extension ChoresDatabase.Sort {
-    var name: String {
+    var title: String {
         switch self {
         case .name:
-            return "name"
+            return "Name"
         case .next:
-            return "next"
+            return "Next Due"
         case .period:
-            return "period"
+            return "Repeat Period"
         }
     }
 }
