@@ -28,7 +28,6 @@ struct MainView: View {
                     .help("Open Settings")
                 }
             }
-            .tint(.purple)
     }
 
 

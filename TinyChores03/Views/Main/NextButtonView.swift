@@ -13,19 +13,13 @@ struct NextButtonView: View {
 
 
     var body: some View {
-        Button(action: action) {
-            Text("Next")
-                .font(.system(.title3, design: .rounded))
-                .fontWeight(.bold)
-        }
-        .foregroundColor(.white)
-        .padding(.horizontal, 24)
-        .padding(.vertical, 14)
-        .background(Capsule().fill(Color.purple))
-        #if os(macOS)
-        .buttonStyle(PlainButtonStyle())
-        #endif
-        .accessibilityLabel("Next chore")
+        Button("Next", action: action)
+            .font(.system(.title3, design: .rounded).weight(.bold))
+            .buttonStyle(.glassProminent)
+            .buttonBorderShape(.capsule)
+            .controlSize(.large)
+            .tint(.purple)
+            .accessibilityLabel("Next chore")
     }
 }
 

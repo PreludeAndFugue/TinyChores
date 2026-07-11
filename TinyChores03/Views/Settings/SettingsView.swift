@@ -26,7 +26,6 @@ struct SettingsView: View {
         .formStyle(.grouped)
         .frame(width: 460, height: 180)
         .scenePadding()
-        .tint(.purple)
         .alert("Reset all tasks?", isPresented: $showingResetConfirmation) {
             Button("Cancel", role: .cancel) { }
             Button("Reset", role: .destructive) {

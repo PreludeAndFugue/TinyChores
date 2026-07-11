@@ -8,6 +8,7 @@ import SwiftUI
 struct TaskManagerView: View {
     @EnvironmentObject private var database: ChoresDatabase
     @SceneStorage("tasks.sort") private var sortName = ChoresDatabase.Sort.next.rawValue
+    @State private var searchText = ""
     @State private var selection: Chore.ID?
     @State private var editor: TaskEditorSheet?
 
@@ -19,26 +20,27 @@ struct TaskManagerView: View {
                 taskList
             }
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .primaryAction) {
+        .toolbar(id: "tasks-toolbar") {
+            ToolbarItem(id: "new-task", placement: .primaryAction) {
                 Button(action: addTask) {
                     Label("New Task", systemImage: "plus")
                 }
                 .keyboardShortcut("n")
                 .help("New Task")
+                .tint(.purple)
+            }
 
+            ToolbarItem(id: "edit-task", placement: .primaryAction) {
                 Button(action: editSelectedTask) {
                     Label("Edit Task", systemImage: "pencil")
                 }
                 .disabled(selectedTask == nil)
                 .help("Edit Selected Task")
+            }
 
-                Button(role: .destructive, action: deleteSelectedTask) {
-                    Label("Delete Task", systemImage: "trash")
-                }
-                .disabled(selectedTask == nil)
-                .help("Delete Selected Task")
+            ToolbarSpacer(.fixed, placement: .primaryAction)
 
+            ToolbarItem(id: "sort-tasks", placement: .primaryAction) {
                 Menu {
                     ForEach(ChoresDatabase.Sort.allCases, id: \.self) { option in
                         Button(action: { sort(by: option) }) {
@@ -54,19 +56,29 @@ struct TaskManagerView: View {
                 }
                 .help("Sort Tasks")
             }
+
+            ToolbarSpacer(.fixed, placement: .primaryAction)
+
+            ToolbarItem(id: "delete-task", placement: .primaryAction) {
+                Button(role: .destructive, action: deleteSelectedTask) {
+                    Label("Delete Task", systemImage: "trash")
+                }
+                .disabled(selectedTask == nil)
+                .help("Delete Selected Task")
+            }
         }
         .sheet(item: $editor) { sheet in
             TaskEditorView(chore: sheet.chore, onDismiss: { editor = nil })
                 .environmentObject(database)
         }
         .onDeleteCommand(perform: deleteSelectedTask)
-        .tint(.purple)
+        .searchable(text: $searchText, prompt: "Search tasks")
     }
 
 
     private var taskList: some View {
         List(selection: $selection) {
-            ForEach(database.chores) { chore in
+            ForEach(filteredChores) { chore in
                 TaskRow(chore: chore)
                     .tag(chore.id)
                     .contentShape(Rectangle())
@@ -88,6 +100,11 @@ struct TaskManagerView: View {
             .onDelete(perform: deleteTasks)
         }
         .listStyle(.inset)
+        .overlay {
+            if filteredChores.isEmpty {
+                ContentUnavailableView.search(text: searchText)
+            }
+        }
     }
 
 
@@ -104,7 +121,8 @@ struct TaskManagerView: View {
                 .foregroundStyle(.secondary)
 
             Button("New Task", action: addTask)
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.glassProminent)
+                .tint(.purple)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -112,6 +130,17 @@ struct TaskManagerView: View {
 
     private var currentSort: ChoresDatabase.Sort {
         ChoresDatabase.Sort(rawValue: sortName) ?? .next
+    }
+
+
+    private var filteredChores: [Chore] {
+        let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !query.isEmpty else { return database.chores }
+
+        return database.chores.filter { chore in
+            chore.name.localizedCaseInsensitiveContains(query)
+                || chore.period.name.localizedCaseInsensitiveContains(query)
+        }
     }
 
 
@@ -153,7 +182,8 @@ struct TaskManagerView: View {
 
 
     private func deleteTasks(at offsets: IndexSet) {
-        database.remove(indexSet: offsets)
+        let tasksToDelete = offsets.map { filteredChores[$0] }
+        tasksToDelete.forEach(delete)
 
         if selectedTask == nil {
             selection = nil
