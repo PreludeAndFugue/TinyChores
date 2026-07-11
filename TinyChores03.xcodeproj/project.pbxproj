@@ -18,6 +18,7 @@
 		4E59AC60250AD519007ED1A6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E59AC5F250AD519007ED1A6 /* SettingsView.swift */; };
 		4E86DA0C2517A79900A2021E /* EditChoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DA0B2517A79900A2021E /* EditChoresView.swift */; };
 		4E86DA142517A97100A2021E /* EditChoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E86DA132517A97100A2021E /* EditChoresViewModel.swift */; };
+		A7A10002290711AA00000001 /* TaskEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A10001290711AA00000001 /* TaskEditorView.swift */; };
 		4EC809EF2517AF2700C409E3 /* ChoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC809EE2517AF2700C409E3 /* ChoreView.swift */; };
 		4EC908AB25255601006C3BCF /* SettingsButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908AA25255601006C3BCF /* SettingsButtonView.swift */; };
 		4EC908B125255860006C3BCF /* NextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC908B025255860006C3BCF /* NextButtonView.swift */; };
@@ -54,6 +55,7 @@
 		4E774E2C264834BD0065426E /* TinyChores03.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TinyChores03.entitlements; sourceTree = "<group>"; };
 		4E86DA0B2517A79900A2021E /* EditChoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresView.swift; sourceTree = "<group>"; };
 		4E86DA132517A97100A2021E /* EditChoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditChoresViewModel.swift; sourceTree = "<group>"; };
+		A7A10001290711AA00000001 /* TaskEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorView.swift; sourceTree = "<group>"; };
 		4EC809EE2517AF2700C409E3 /* ChoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreView.swift; sourceTree = "<group>"; };
 		4EC908AA25255601006C3BCF /* SettingsButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonView.swift; sourceTree = "<group>"; };
 		4EC908B025255860006C3BCF /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				4E3CC75F252A748E0019900B /* EditChoresMenuView.swift */,
 				4E3CC763252A79650019900B /* EditChoresMenuViewModel.swift */,
 				4E3CC769252A80A50019900B /* EditChoresMenuButtonView.swift */,
+				A7A10001290711AA00000001 /* TaskEditorView.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				4EC908B725255A1A006C3BCF /* MainTextView.swift in Sources */,
 				4E3CC76E252A83470019900B /* ChoresDatabase+Sort.swift in Sources */,
 				4E86DA142517A97100A2021E /* EditChoresViewModel.swift in Sources */,
+				A7A10002290711AA00000001 /* TaskEditorView.swift in Sources */,
 				4E1FB23E250ABE110028CBA4 /* Chore+Period.swift in Sources */,
 				4E3CC764252A79650019900B /* EditChoresMenuViewModel.swift in Sources */,
 				4EE2DE9A251A922B00675C8D /* AddChoreViewModel.swift in Sources */,

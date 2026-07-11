@@ -39,6 +39,21 @@ final class ChoresDatabase: ObservableObject {
     }
 
 
+    func update(chore: Chore, name: String, period: Chore.Period) {
+        chore.name = name
+        chore.period = period
+        objectWillChange.send()
+        save()
+    }
+
+
+    func remove(chore: Chore) {
+        guard let index = chores.firstIndex(where: { $0.id == chore.id }) else { return }
+        chores.remove(at: index)
+        save()
+    }
+
+
     func remove(indexSet: IndexSet) {
         chores.remove(atOffsets: indexSet)
         save()

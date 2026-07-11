@@ -12,6 +12,7 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var db: ChoresDatabase
     @State var shouldReset = false
+    @State private var isManagingTasks = false
 
     var body: some View {
         #if os(macOS)
@@ -28,6 +29,10 @@ struct SettingsView: View {
             Text("Settings")
                 .font(.headline)
 
+            Button(action: { isManagingTasks = true }) {
+                Text("Manage tasks")
+            }
+
             Button(action: canResetChores) {
                 Text("Reset chores")
                     .foregroundColor(.purple)
@@ -40,6 +45,11 @@ struct SettingsView: View {
         }
         .padding()
         .frame(width: 320)
+        .sheet(isPresented: $isManagingTasks) {
+            EditChoresView(viewModel: .init(db: db))
+                .environmentObject(db)
+                .frame(minWidth: 480, minHeight: 420)
+        }
         .alert(isPresented: $shouldReset, content: {
             shouldResetAlert
         })
@@ -51,11 +61,9 @@ struct SettingsView: View {
     private var iOSContent: some View {
         NavigationView {
             List {
-//                NavigationLink(
-//                    destination: EditChoresView(viewModel: .init(db: self.db)),
-//                    label: {
-//                        Text("Edit chores")
-//                })
+                NavigationLink(destination: EditChoresView(viewModel: .init(db: db))) {
+                    Label("Manage tasks", systemImage: "checklist")
+                }
 
                 Button(action: canResetChores, label: {
                     Text("Reset chores")

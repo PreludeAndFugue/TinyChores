@@ -15,13 +15,13 @@ struct ChoreView: View {
         HStack {
             VStack(alignment: .leading, spacing: 8) {
                 Text(chore.name)
-                    .font(.system(.title, design: .rounded))
+                    .font(.headline)
 
                 Text(chore.period.name)
-                    .font(.system(.body, design: .rounded))
+                    .font(.subheadline)
                     .foregroundColor(.purple)
             }
-            .padding([.top, .bottom], 8)
+            .padding(.vertical, 4)
             Spacer()
         }
     }

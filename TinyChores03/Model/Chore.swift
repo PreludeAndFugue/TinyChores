@@ -10,8 +10,8 @@ import Foundation
 
 final class Chore: Identifiable, Codable {
     let id: UUID
-    let name: String
-    let period: Period
+    var name: String
+    var period: Period
     var date: Date
 
     init(id: UUID, name: String, period: Period, date: Date) {

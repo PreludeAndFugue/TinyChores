@@ -10,7 +10,7 @@ import SwiftUI
 
 struct EditChoresView: View {
     @EnvironmentObject var db: ChoresDatabase
-    @State var isCreatingChore = false
+    @State private var editor: TaskEditorSheet?
     @StateObject var viewModel: EditChoresViewModel
 
     
@@ -25,13 +25,18 @@ struct EditChoresView: View {
 
     #if os(macOS)
     private var macOSContent: some View {
-        choreList
-            .listStyle(.inset)
-            .toolbar {
-                ToolbarItem {
-                    trailingButtons
-                }
+        VStack(spacing: 0) {
+            HStack {
+                Text("Tasks")
+                    .font(.headline)
+                Spacer()
+                trailingButtons
             }
+            .padding([.top, .horizontal])
+
+            choreList
+                .listStyle(.inset)
+        }
     }
     #endif
 
@@ -40,7 +45,7 @@ struct EditChoresView: View {
     private var iOSContent: some View {
         choreList
             .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Edit")
+            .navigationTitle("Tasks")
             .navigationBarItems(trailing: trailingButtons)
     }
     #endif
@@ -49,12 +54,13 @@ struct EditChoresView: View {
     private var choreList: some View {
         List {
             ForEach(viewModel.chores) { chore in
-                ChoreView(chore: chore)
+                taskRow(chore)
             }
             .onDelete(perform: deleteChore)
         }
-        .sheet(isPresented: $isCreatingChore) {
-            AddChoreView(viewModel: AddChoreViewModel(db: db))
+        .sheet(item: $editor) { sheet in
+            TaskEditorView(chore: sheet.chore)
+                .environmentObject(db)
         }
         .onDisappear {
             viewModel.sort(by: .next)
@@ -63,7 +69,12 @@ struct EditChoresView: View {
 
 
     private var trailingButtons: some View {
-        EditChoresMenuView(sort: viewModel.sort, sorter: viewModel.sort(by:), addChore: addChore)
+        HStack(spacing: 16) {
+            EditChoresMenuView(sort: viewModel.sort, sorter: viewModel.sort(by:), addChore: addChore)
+            #if os(iOS)
+            EditButton()
+            #endif
+        }
     }
 }
 
@@ -71,14 +82,59 @@ struct EditChoresView: View {
 // MARK: - Editing chores
 
 private extension EditChoresView {
+    func taskRow(_ chore: Chore) -> some View {
+        Button(action: { editor = .edit(chore) }) {
+            HStack(spacing: 12) {
+                ChoreView(chore: chore)
+                Image(systemName: "pencil")
+                    .foregroundColor(.secondary)
+            }
+        }
+        .buttonStyle(PlainButtonStyle())
+        .contextMenu {
+            Button(action: { editor = .edit(chore) }) {
+                Text("Edit")
+            }
+            Button(action: { db.remove(chore: chore) }) {
+                Text("Delete")
+            }
+        }
+        .accessibilityLabel("Edit \(chore.name)")
+    }
+
+
     private func addChore() {
-        isCreatingChore.toggle()
+        editor = .new
     }
 
 
     private func deleteChore(indexSet: IndexSet?) {
         guard let indexSet = indexSet else { return }
         viewModel.deleteChore(indexSet: indexSet)
+    }
+}
+
+
+private enum TaskEditorSheet: Identifiable {
+    case new
+    case edit(Chore)
+
+    var id: String {
+        switch self {
+        case .new:
+            return "new"
+        case .edit(let chore):
+            return chore.id.uuidString
+        }
+    }
+
+    var chore: Chore? {
+        switch self {
+        case .new:
+            return nil
+        case .edit(let chore):
+            return chore
+        }
     }
 }
 
