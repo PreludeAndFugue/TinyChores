@@ -16,6 +16,8 @@ extension Chore {
         case twoDays = 172_800
         case threeDays = 259_200
         case oneWeek = 604_800
+        case fourWeeks = 2_419_200
+        case threeMonths = 7_776_000
     }
 }
 
@@ -40,6 +42,10 @@ extension Chore.Period {
             return "Three days"
         case .oneWeek:
             return "One Week"
+        case .fourWeeks:
+            return "Four weeks"
+        case .threeMonths:
+            return "Three months"
         }
     }
 }

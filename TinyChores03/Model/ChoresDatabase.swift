@@ -111,7 +111,13 @@ private extension ChoresDatabase {
         Chore(id: UUID(), name: "Dust downstairs", period: .oneWeek, date: Date()),
         Chore(id: UUID(), name: "Clean desk", period: .oneWeek, date: Date()),
         Chore(id: UUID(), name: "Change sheets", period: .oneWeek, date: Date()),
-        Chore(id: UUID(), name: "Weed front door", period: .oneWeek, date: Date())
+        Chore(id: UUID(), name: "Weed front door", period: .oneWeek, date: Date()),
+        Chore(id: UUID(), name: "Clean shower screen", period: .oneWeek, date: Date()),
+
+        Chore(id: UUID(), name: "Clean washing machine", period: .fourWeeks, date: Date()),
+        Chore(id: UUID(), name: "Dust skirting boards", period: .fourWeeks, date: Date()),
+
+        Chore(id: UUID(), name: "Vacuum mattress", period: .threeMonths, date: Date())
     ]
 }
 
