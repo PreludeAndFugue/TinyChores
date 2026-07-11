@@ -22,6 +22,9 @@ struct NextButtonView: View {
         .padding(.horizontal, 24)
         .padding(.vertical, 14)
         .background(Capsule().fill(Color.purple))
+        #if os(macOS)
+        .buttonStyle(PlainButtonStyle())
+        #endif
         .accessibilityLabel("Next chore")
     }
 }
