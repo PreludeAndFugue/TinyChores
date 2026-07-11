@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct EditChoresView: View {
+    @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject var db: ChoresDatabase
     @State private var editor: TaskEditorSheet?
     @StateObject var viewModel: EditChoresViewModel
@@ -31,6 +32,8 @@ struct EditChoresView: View {
                     .font(.headline)
                 Spacer()
                 trailingButtons
+                Button("Done", action: dismiss)
+                    .keyboardShortcut(.cancelAction)
             }
             .padding([.top, .horizontal])
 
@@ -59,7 +62,7 @@ struct EditChoresView: View {
             .onDelete(perform: deleteChore)
         }
         .sheet(item: $editor) { sheet in
-            TaskEditorView(chore: sheet.chore)
+            TaskEditorView(chore: sheet.chore, onDismiss: { editor = nil })
                 .environmentObject(db)
         }
         .onDisappear {
@@ -105,6 +108,11 @@ private extension EditChoresView {
 
     private func addChore() {
         editor = .new
+    }
+
+
+    private func dismiss() {
+        presentationMode.wrappedValue.dismiss()
     }
 
 

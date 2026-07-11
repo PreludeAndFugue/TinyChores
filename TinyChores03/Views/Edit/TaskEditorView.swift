@@ -6,15 +6,16 @@
 import SwiftUI
 
 struct TaskEditorView: View {
-    @Environment(\.presentationMode) private var presentationMode
     @EnvironmentObject private var database: ChoresDatabase
 
     private let chore: Chore?
+    private let onDismiss: () -> Void
     @State private var name: String
     @State private var period: Chore.Period
 
-    init(chore: Chore? = nil) {
+    init(chore: Chore? = nil, onDismiss: @escaping () -> Void) {
         self.chore = chore
+        self.onDismiss = onDismiss
         _name = State(initialValue: chore?.name ?? "")
         _period = State(initialValue: chore?.period ?? .day)
     }
@@ -34,8 +35,12 @@ struct TaskEditorView: View {
             Text(title)
                 .font(.headline)
 
-            Form {
-                editorFields
+            TextField("Task name", text: $name)
+
+            Picker("Repeat", selection: $period) {
+                ForEach(Chore.Period.allCases) { period in
+                    Text(period.name).tag(period)
+                }
             }
 
             HStack {
@@ -78,6 +83,7 @@ struct TaskEditorView: View {
 
     private var cancelButton: some View {
         Button("Cancel", action: dismiss)
+            .keyboardShortcut(.cancelAction)
     }
 
 
@@ -111,6 +117,6 @@ struct TaskEditorView: View {
 
 
     private func dismiss() {
-        presentationMode.wrappedValue.dismiss()
+        onDismiss()
     }
 }
