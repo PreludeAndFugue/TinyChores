@@ -15,15 +15,10 @@ struct SettingsView: View {
     @State private var isManagingTasks = false
 
     var body: some View {
-        #if os(macOS)
         macOSContent
-        #else
-        iOSContent
-        #endif
     }
 
 
-    #if os(macOS)
     private var macOSContent: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Settings")
@@ -54,31 +49,6 @@ struct SettingsView: View {
             shouldResetAlert
         })
     }
-    #endif
-
-
-    #if os(iOS)
-    private var iOSContent: some View {
-        NavigationView {
-            List {
-                NavigationLink(destination: EditChoresView(viewModel: .init(db: db))) {
-                    Label("Manage tasks", systemImage: "checklist")
-                }
-
-                Button(action: canResetChores, label: {
-                    Text("Reset chores")
-                        .foregroundColor(.purple)
-                })
-            }
-            .listStyle(InsetGroupedListStyle())
-            .navigationBarTitle(Text("Settings"), displayMode: .inline)
-            .navigationBarItems(trailing: doneButton)
-            .alert(isPresented: $shouldReset, content: {
-                shouldResetAlert
-            })
-        }
-    }
-    #endif
 
 
     var doneButton: some View {

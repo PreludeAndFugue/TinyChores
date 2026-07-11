@@ -28,8 +28,6 @@
 		4ECDBBA1250ABDAA002F5BC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECDBBA0250ABDAA002F5BC5 /* Assets.xcassets */; };
 		4ECDBBA4250ABDAA002F5BC5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECDBBA3250ABDAA002F5BC5 /* Preview Assets.xcassets */; };
 		4ECDBBB2250ABDAA002F5BC5 /* TinyChores03Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECDBBB1250ABDAA002F5BC5 /* TinyChores03Tests.swift */; };
-		4EE2DE94251A8C3700675C8D /* AddChoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2DE93251A8C3700675C8D /* AddChoreView.swift */; };
-		4EE2DE9A251A922B00675C8D /* AddChoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2DE99251A922B00675C8D /* AddChoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +67,6 @@
 		4ECDBBAD250ABDAA002F5BC5 /* TinyChores03Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyChores03Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECDBBB1250ABDAA002F5BC5 /* TinyChores03Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinyChores03Tests.swift; sourceTree = "<group>"; };
 		4ECDBBB3250ABDAA002F5BC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EE2DE93251A8C3700675C8D /* AddChoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoreView.swift; sourceTree = "<group>"; };
-		4EE2DE99251A922B00675C8D /* AddChoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +101,6 @@
 		4E1FB241250ABE220028CBA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4EE2DE92251A8C2A00675C8D /* Add */,
 				4E86DA122517A96300A2021E /* Edit */,
 				4E86DA112517A95400A2021E /* Main */,
 				4EE2DE9D251A9F2E00675C8D /* Settings */,
@@ -186,15 +181,6 @@
 				4ECDBBB3250ABDAA002F5BC5 /* Info.plist */,
 			);
 			path = TinyChores03Tests;
-			sourceTree = "<group>";
-		};
-		4EE2DE92251A8C2A00675C8D /* Add */ = {
-			isa = PBXGroup;
-			children = (
-				4EE2DE93251A8C3700675C8D /* AddChoreView.swift */,
-				4EE2DE99251A922B00675C8D /* AddChoreViewModel.swift */,
-			);
-			path = Add;
 			sourceTree = "<group>";
 		};
 		4EE2DE9D251A9F2E00675C8D /* Settings */ = {
@@ -313,11 +299,9 @@
 				A7A10002290711AA00000001 /* TaskEditorView.swift in Sources */,
 				4E1FB23E250ABE110028CBA4 /* Chore+Period.swift in Sources */,
 				4E3CC764252A79650019900B /* EditChoresMenuViewModel.swift in Sources */,
-				4EE2DE9A251A922B00675C8D /* AddChoreViewModel.swift in Sources */,
 				4EC908AB25255601006C3BCF /* SettingsButtonView.swift in Sources */,
 				4ECDBB9B250ABDA9002F5BC5 /* TinyChores03App.swift in Sources */,
 				4E3CC760252A748E0019900B /* EditChoresMenuView.swift in Sources */,
-				4EE2DE94251A8C3700675C8D /* AddChoreView.swift in Sources */,
 				4EC908B125255860006C3BCF /* NextButtonView.swift in Sources */,
 				4E86DA0C2517A79900A2021E /* EditChoresView.swift in Sources */,
 				4ECDBB9F250ABDA9002F5BC5 /* MainView.swift in Sources */,
@@ -397,12 +381,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				SDKROOT = auto;
+				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -453,11 +436,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				SDKROOT = auto;
+				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -487,12 +469,8 @@
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "Tiny Chores";
 				REGISTER_APP_GROUPS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,12 +493,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME)";
 				PRODUCT_NAME = "Tiny Chores";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -532,7 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T59AZ797LW;
 				INFOPLIST_FILE = TinyChores03Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -540,9 +514,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TinyChores03.app/TinyChores03";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tiny Chores.app/Contents/MacOS/Tiny Chores";
 			};
 			name = Debug;
 		};
@@ -554,7 +528,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T59AZ797LW;
 				INFOPLIST_FILE = TinyChores03Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,9 +536,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.preludeandfugue.TinyChores03Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TinyChores03.app/TinyChores03";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tiny Chores.app/Contents/MacOS/Tiny Chores";
 			};
 			name = Release;
 		};

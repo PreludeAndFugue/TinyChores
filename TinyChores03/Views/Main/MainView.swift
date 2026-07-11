@@ -8,10 +8,6 @@
 
 import SwiftUI
 
-#if os(iOS)
-import UIKit
-#endif
-
 struct MainView: View {
     @EnvironmentObject var db: ChoresDatabase
     @StateObject var viewModel: MainViewModel
@@ -55,14 +51,8 @@ struct MainView: View {
     }
 
 
-    @ViewBuilder
     private var screenBackground: some View {
-        #if os(iOS)
-        Color(UIColor.systemBackground)
-            .ignoresSafeArea()
-        #else
         Color.clear
-        #endif
     }
 }
 

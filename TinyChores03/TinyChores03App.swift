@@ -20,18 +20,9 @@ struct TinyChores03App: App {
 
     var body: some Scene {
         WindowGroup {
-            mainContent
+            MainView(viewModel: mainViewModel)
+                .environmentObject(database)
+                .frame(minWidth: 480, minHeight: 360)
         }
-    }
-
-
-    @ViewBuilder
-    private var mainContent: some View {
-        MainView(viewModel: mainViewModel)
-            .environmentObject(database)
-
-        #if os(macOS)
-            .frame(minWidth: 480, minHeight: 360)
-        #endif
     }
 }

@@ -16,15 +16,10 @@ struct EditChoresView: View {
 
     
     var body: some View {
-        #if os(macOS)
         macOSContent
-        #else
-        iOSContent
-        #endif
     }
 
 
-    #if os(macOS)
     private var macOSContent: some View {
         VStack(spacing: 0) {
             HStack {
@@ -41,17 +36,6 @@ struct EditChoresView: View {
                 .listStyle(.inset)
         }
     }
-    #endif
-
-
-    #if os(iOS)
-    private var iOSContent: some View {
-        choreList
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Tasks")
-            .navigationBarItems(trailing: trailingButtons)
-    }
-    #endif
 
 
     private var choreList: some View {
@@ -74,9 +58,6 @@ struct EditChoresView: View {
     private var trailingButtons: some View {
         HStack(spacing: 16) {
             EditChoresMenuView(sort: viewModel.sort, sorter: viewModel.sort(by:), addChore: addChore)
-            #if os(iOS)
-            EditButton()
-            #endif
         }
     }
 }
@@ -152,9 +133,7 @@ struct EditChoresView_Previews: PreviewProvider {
     static let vm = EditChoresViewModel(db: .init(userDefaults: .standard))
 
     static var previews: some View {
-        NavigationView {
-            EditChoresView(viewModel: vm)
-        }
+        EditChoresView(viewModel: vm)
     }
 }
 #endif
