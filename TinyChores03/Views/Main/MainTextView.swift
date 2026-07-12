@@ -10,20 +10,18 @@ import SwiftUI
 
 struct MainTextView: View {
     let name: String
-    @Binding var toggle: Bool
+    let choreID: UUID
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         VStack {
             Spacer()
 
             ZStack {
-                if toggle {
-                    text
-                } else {
-                    text
-                }
+                text
+                    .id(choreID)
             }
-            .animation(.easeIn, value: toggle)
+            .animation(contentAnimation, value: choreID)
 
             Spacer()
         }
@@ -31,9 +29,13 @@ struct MainTextView: View {
 
 
     private var transition: AnyTransition {
-        let insertion = AnyTransition.scale(scale: 0.1).combined(with: .opacity)
-        let removal = AnyTransition.scale(scale: 6).combined(with: .opacity)
-        return .asymmetric(insertion: insertion, removal: removal)
+        guard !reduceMotion else { return .identity }
+        return .opacity.combined(with: .scale(scale: 0.96))
+    }
+
+
+    private var contentAnimation: Animation? {
+        reduceMotion ? nil : .smooth(duration: 0.28, extraBounce: 0)
     }
 
 
@@ -52,6 +54,6 @@ struct MainTextView: View {
 
 struct MainTextView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTextView(name: "Current chore", toggle: .constant(true))
+        MainTextView(name: "Current chore", choreID: UUID())
     }
 }

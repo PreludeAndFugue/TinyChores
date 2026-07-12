@@ -12,7 +12,6 @@ final class MainViewModel: ObservableObject {
     private let db: ChoresDatabase
 
     @Published var currentChore: Chore
-    @Published var textViewToggle = false
 
 
     init(db: ChoresDatabase) {
@@ -22,7 +21,6 @@ final class MainViewModel: ObservableObject {
 
 
     func finishChore() {
-        textViewToggle.toggle()
         db.finishCurrentChore()
         currentChore = db.chores.first!
     }

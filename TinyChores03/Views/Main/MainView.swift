@@ -39,7 +39,10 @@ struct MainView: View {
 
     private var content: some View {
         ZStack {
-            MainTextView(name: viewModel.currentChore.name, toggle: $viewModel.textViewToggle)
+            MainTextView(
+                name: viewModel.currentChore.name,
+                choreID: viewModel.currentChore.id
+            )
         }
         .overlay(nextButton, alignment: .bottomTrailing)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -68,9 +71,7 @@ private extension MainView {
 
 
     func completeChore() {
-        withAnimation {
-            viewModel.finishChore()
-        }
+        viewModel.finishChore()
     }
 }
 
