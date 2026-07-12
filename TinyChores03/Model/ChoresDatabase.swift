@@ -21,12 +21,14 @@ final class ChoresDatabase: ObservableObject {
     init(userDefaults: UserDefaults) {
         print("ChoresDatabase.init")
         self.userDefaults = userDefaults
-        self.chores = load(from: userDefaults)
+        self.chores = load(from: userDefaults).sorted(by: { $0.date < $1.date })
     }
 
 
-    func finishCurrentChore() {
-        chores.first!.finish()
+    func finish(choreID: Chore.ID) {
+        guard let chore = chores.first(where: { $0.id == choreID }) else { return }
+
+        chore.finish()
         chores.sort(by: { $0.date < $1.date })
         save()
     }
@@ -63,18 +65,6 @@ final class ChoresDatabase: ObservableObject {
     func resetChores() {
         chores = Self.initialChores
         save()
-    }
-
-
-    func sort(by sort: Sort) {
-        switch sort {
-        case .name:
-            chores.sort(by: { $0.name < $1.name })
-        case .period:
-            chores.sort(by: { $0.period < $1.period })
-        case .next:
-            chores.sort(by: { $0.date < $1.date })
-        }
     }
 }
 

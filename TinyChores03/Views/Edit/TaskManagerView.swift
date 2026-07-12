@@ -135,12 +135,18 @@ struct TaskManagerView: View {
 
     private var filteredChores: [Chore] {
         let query = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !query.isEmpty else { return database.chores }
+        let matchingChores: [Chore]
 
-        return database.chores.filter { chore in
-            chore.name.localizedCaseInsensitiveContains(query)
-                || chore.period.name.localizedCaseInsensitiveContains(query)
+        if query.isEmpty {
+            matchingChores = database.chores
+        } else {
+            matchingChores = database.chores.filter { chore in
+                chore.name.localizedCaseInsensitiveContains(query)
+                    || chore.period.name.localizedCaseInsensitiveContains(query)
+            }
         }
+
+        return sorted(matchingChores)
     }
 
 
@@ -192,10 +198,22 @@ struct TaskManagerView: View {
 
 
     private func sort(by option: ChoresDatabase.Sort) {
-        sortName = option.rawValue
-
         withAnimation {
-            database.sort(by: option)
+            sortName = option.rawValue
+        }
+    }
+
+
+    private func sorted(_ chores: [Chore]) -> [Chore] {
+        chores.sorted { lhs, rhs in
+            switch currentSort {
+            case .name:
+                return lhs.name < rhs.name
+            case .period:
+                return lhs.period < rhs.period
+            case .next:
+                return lhs.date < rhs.date
+            }
         }
     }
 }

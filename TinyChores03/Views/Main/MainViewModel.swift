@@ -21,7 +21,7 @@ final class MainViewModel: ObservableObject {
 
 
     func finishChore() {
-        db.finishCurrentChore()
+        db.finish(choreID: currentChore.id)
         currentChore = db.chores.first!
     }
 

@@ -9,26 +9,50 @@
 import XCTest
 @testable import TinyChores03
 
-class TinyChores03Tests: XCTestCase {
+final class TinyChores03Tests: XCTestCase {
+    private var defaults: UserDefaults!
+    private var suiteName: String!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    override func setUp() {
+        super.setUp()
+
+        suiteName = "TinyChores03Tests.\(UUID().uuidString)"
+        defaults = UserDefaults(suiteName: suiteName)!
+        defaults.removePersistentDomain(forName: suiteName)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        defaults.removePersistentDomain(forName: suiteName)
+        defaults = nil
+        suiteName = nil
+
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    func testFinishTargetsTheRequestedChoreRegardlessOfArrayOrder() {
+        let database = ChoresDatabase(userDefaults: defaults)
+        let referenceDate = Date(timeIntervalSinceReferenceDate: 1_000_000)
+        let firstChore = Chore(
+            id: UUID(),
+            name: "First",
+            period: .day,
+            date: referenceDate
+        )
+        let requestedChore = Chore(
+            id: UUID(),
+            name: "Requested",
+            period: .day,
+            date: referenceDate.addingTimeInterval(3_600)
+        )
+        database.chores = [firstChore, requestedChore]
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+        database.finish(choreID: requestedChore.id)
 
+        XCTAssertEqual(firstChore.date, referenceDate)
+        XCTAssertEqual(
+            requestedChore.date,
+            referenceDate.addingTimeInterval(3_600 + Chore.Period.day.timeInterval)
+        )
+        XCTAssertEqual(database.chores.first?.id, firstChore.id)
+    }
 }
