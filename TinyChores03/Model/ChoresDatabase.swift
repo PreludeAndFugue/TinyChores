@@ -84,6 +84,9 @@ private extension ChoresDatabase {
         Chore(id: UUID(), name: "Stretch", period: .thirdDay, date: Date()),
         
         Chore(id: UUID(), name: "Clean dishes", period: .halfDay, date: Date()),
+        Chore(id: UUID(), name: "Press ups", period: .halfDay, date: Date()),
+        Chore(id: UUID(), name: "Sit ups", period: .halfDay, date: Date()),
+        Chore(id: UUID(), name: "Squats", period: .halfDay, date: Date()),
 
         Chore(id: UUID(), name: "Check bike", period: .day, date: Date()),
 
