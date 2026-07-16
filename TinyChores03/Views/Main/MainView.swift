@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel: MainViewModel
+    @ObservedObject var viewModel: MainViewModel
     @Environment(\.openWindow) private var openWindow
     
     
@@ -39,12 +39,20 @@ struct MainView: View {
 
     private var content: some View {
         ZStack {
-            MainTextView(
-                name: viewModel.currentChore.name,
-                choreID: viewModel.currentChore.id
-            )
+            if let chore = viewModel.currentChore {
+                MainTextView(
+                    name: chore.name,
+                    choreID: chore.id
+                )
+            } else {
+                emptyState
+            }
         }
-        .overlay(nextButton, alignment: .bottomTrailing)
+        .overlay(alignment: .bottomTrailing) {
+            if viewModel.currentChore != nil {
+                nextButton
+            }
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
@@ -58,6 +66,25 @@ struct MainView: View {
 
     private var screenBackground: some View {
         Color.clear
+    }
+
+
+    private var emptyState: some View {
+        VStack(spacing: 12) {
+            Image(systemName: "checklist")
+                .font(.system(size: 36))
+                .foregroundStyle(.secondary)
+
+            Text("No Tasks")
+                .font(.title3.weight(.semibold))
+
+            Text("Create a task to get started.")
+                .foregroundStyle(.secondary)
+
+            Button("Manage Tasks", action: showTasks)
+                .buttonStyle(.glassProminent)
+                .tint(.purple)
+        }
     }
 }
 

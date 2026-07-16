@@ -55,4 +55,15 @@ final class TinyChores03Tests: XCTestCase {
         )
         XCTAssertEqual(database.chores.first?.id, firstChore.id)
     }
+
+    func testResetUpdatesTheDisplayedChore() {
+        let database = ChoresDatabase(userDefaults: defaults)
+        let viewModel = MainViewModel(db: database)
+        let previousChoreID = viewModel.currentChore?.id
+
+        database.resetChores()
+
+        XCTAssertNotEqual(viewModel.currentChore?.id, previousChoreID)
+        XCTAssertEqual(viewModel.currentChore?.id, database.chores.first?.id)
+    }
 }
